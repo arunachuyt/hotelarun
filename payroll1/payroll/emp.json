@@ -1,0 +1,46 @@
+[ {
+		"empno" : 1234,
+		"empname" : "thomas",
+		"empsalary" : 1222,
+		"department" : {
+			"id" : 10,
+			"deptname" : "tr",
+			"deptloc" : "chennai"
+		},
+		"address" : {
+			"id": 1,
+			"street" : "thraipalla",
+			"state" : "TN",
+			"country" : "IN"
+		},
+		"skills" : [ {
+			"skillid" : 1,
+			"skillname" : "java"
+		}, {
+			"skillid" : 2,
+			"skillname" : ".net"
+		} ]
+	} ,{
+		"empno" : 1234,
+		"empname" : "thomas",
+		"empsalary" : 1222,
+		"department" : {
+			"id" : 10,
+			"deptname" : "tr",
+			"deptloc" : "chennai"
+		},
+		"address" : {
+			"id": 1,
+			"street" : "thraipalla",
+			"state" : "TN",
+			"country" : "IN"
+		},
+		"skills" : [ {
+			"skillid" : 1,
+			"skillname" : "java"
+		}, {
+			"skillid" : 2,
+			"skillname" : ".net"
+		} ]
+	} ]
+

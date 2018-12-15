@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="css/style.css" type="text/css">
+ -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+function myAsyncFunction(url) {
+	  return new Promise((resolve, reject) => {
+	    const xhr = new XMLHttpRequest();
+	    xhr.open("GET", url);
+	    xhr.onload = () => resolve(xhr.responseText);
+	    xhr.onerror = () => reject(xhr.statusText);
+	    xhr.send();
+	  });
+	}
+
+function getdata(){
+
+myAsyncFunction("http://localhost:9191/payroll/emp.json").then(
+		(res)=>{
+			//document.write(res);
+			
+			  
+			var re=JSON.parse(res);
+			
+			
+			$("#data").html("<table id='employees' border='1'><tr><th>Empname </th>"
+			+"<th>Emp salary</th>"
+			+"<th>deptname</th>"
+			+"<th>street</th>"
+			+"<th>city</th>"
+			+"<th>state</th>"
+			+"<th>country</th></tr>"
+			
+			+"<tr><td>"+re[0]["empname"] +" </td>"
+			+"<td>"+re[0]["empsalary"] +"</td>"
+			+"<td>"+re[0]["department"]["deptname"] +"</td>"
+			+"<td>"+re[0]["address"]["street"] +"</td>"
+			+"<td>"+re[0]["address"]["city"] +"</td>"
+			+"<td>"+re[0]["address"]["state"] +"</td>"
+			+"<td>"+re[0]["address"]["country"] +"</td></tr></table>"
+					
+					);
+			
+			
+			
+		}
+,(err)=>{
+	console.log(err);
+})
+}
+
+var m=(a,b)=>{
+	//alert(a);
+	//alert(b);
+	
+	return (a+b);
+}
+var res=m(10,20);
+alert(res);
+
+var t=function(a,b){
+	alert(a);
+	alert(b);
+	
+}
+t(10,20);
+
+function divide(a,b){
+	var promise=new Promise((resolve,reject)=>{
+		if(b!=0){
+			resolve(a/b);
+		}else{
+			reject("Zero not allowed");
+		}
+		
+	});
+	
+	return promise;
+}
+
+divide(10,0).then(function(result){
+	
+	console.log(result);
+	
+},function(err){
+	console.log(err);
+		
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<div id="data"></div>
+
+<button onclick="getdata();">sdjfjkaf</button>
+
+<div class="container">
+
+
+	<div class="row">
+
+<div style="background-color: red;" class="col-sm-3 col-md-4  col-lg-6">Hello first div</div>
+<div style="background-color: blue;" class="col-sm-3 col-md-4 col-lg-6" >Hello second div</div>
+<div style="background-color: orange;" class="col-sm-3 col-md-4 col-lg-6" >Hello Third div</div>
+<div style="background-color: orange;" class="col-sm-3 col-md-4 col-lg-6" >Hello fourth div</div>
+
+
+</div>
+	<div class="row">
+
+<div class="col-sm-4 col-lg-6">Hello first div</div>
+<div class="col-sm-4 col-lg-6" >Hello second div</div>
+<div class="col-sm-4 col-lg-6" >Hello Third div</div>
+
+</div>
+<div class="row">
+
+<div class="col-sm-4">Hello first div</div>
+<div class="col-sm-4" >Hello second div</div>
+<div class="col-sm-4" >Hello Third div</div>
+
+</div>
+
+
+   <div id="header" >
+   <h3>Payroll Management Sytem</h3>
+   </div>
+  
+   <div id="content">
+   
+   <div id="nav">
+   <h3>Navigations</h3>
+   <ul>
+   <li class="selected" ><a href=""> Login </a></li>
+   <li><a href=""> Registration</a> </li>
+   <li><a href=""> list </a></li>
+   <li> <a href="">logout </a></li>
+   </ul>
+   </div>
+   
+   
+   <div id="main">
+   <h3>Home page</h3>
+   <p>Hello we are happy to annouce </p>
+   <p> we got Paytm project to implement</p>
+   <p>Now our company grow like FB</p>
+   
+   </div>
+   
+   
+   
+   
+   
+   </div>
+
+   <div id="footer">
+   
+   Copyright &copy; payroll.com
+   </div>
+
+
+
+</div>
+
+</body>
+</html>

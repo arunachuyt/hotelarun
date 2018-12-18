@@ -1,16 +1,17 @@
 package com.onlinehotel.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 public class BookingDetails {
 	private BookingEntry bid;
 	private Room roomId;
-	private LocalDate checkIn;
-	private LocalDate checkOut;
+	private Date checkIn;
+	private Date checkOut;
 	public BookingDetails() {
 		super();
 	}
-	public BookingDetails(BookingEntry bid, Room roomId, LocalDate checkIn, LocalDate checkOut) {
+	public BookingDetails(BookingEntry bid, Room roomId,Date checkIn,Date checkOut) {
 		super();
 		this.bid = bid;
 		this.roomId = roomId;
@@ -29,16 +30,16 @@ public class BookingDetails {
 	public void setRoomId(Room roomId) {
 		this.roomId = roomId;
 	}
-	public LocalDate getCheckIn() {
+	public Date getCheckIn() {
 		return checkIn;
 	}
-	public void setCheckIn(LocalDate checkIn) {
+	public void setCheckIn(Date checkIn) {
 		this.checkIn = checkIn;
 	}
-	public LocalDate getCheckOut() {
+	public Date getCheckOut() {
 		return checkOut;
 	}
-	public void setCheckOut(LocalDate checkOut) {
+	public void setCheckOut(Date checkOut) {
 		this.checkOut = checkOut;
 	}
 	@Override

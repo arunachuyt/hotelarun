@@ -18,7 +18,7 @@ public class CustomerDAO {
 
 	public boolean loginCheck(Customer customer) throws OnlineHotelException{
 		boolean flag = false;
-		String query = "select * from admin where username=? and password=?";
+		String query = "select * from customer where phone_no=? and password=?";
 		Connection conobj = null;
 		PreparedStatement pstmt = null;
 		ResultSet result = null;
@@ -26,8 +26,8 @@ public class CustomerDAO {
 		try {
 			conobj = ConnectionUtil.getConnection();
 			pstmt = (PreparedStatement) conobj.prepareStatement(query);
-			pstmt.setString(1,""+customer.getPhoneNo());
-			pstmt.setString(2, customer.getPassword());
+			pstmt.setString(1,customer.getPhoneNo());
+			pstmt.setString(2,customer.getPassword());
 			result = pstmt.executeQuery();
 			if (result.next()) {
 				flag = true;
@@ -54,19 +54,23 @@ public class CustomerDAO {
 		return flag;
 	}
 	
-	public void registerCustomer(Connection conobj,Customer customer)
+	public boolean registerCustomer(Customer customer) throws OnlineHotelException
 	{
+		boolean flag=false;
 		String query="insert into customer values(?,?,?)";
+		Connection conobj = null;
 		PreparedStatement pstmt=null;
 		try {
+			conobj = ConnectionUtil.getConnection();
 			pstmt=(PreparedStatement) conobj.prepareStatement(query);
-			pstmt.setString(1,customer.getName());
-			pstmt.setInt(2,Integer.parseInt(customer.getContactNo()));
-			pstmt.setInt(3, customer.getVtype().getVerificationNo());
+			pstmt.setString(1,customer.getPhoneNo());
+			pstmt.setString(2,customer.getCustName());
+			pstmt.setString(3, customer.getPassword());
 			pstmt.executeUpdate();
+			flag=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new OnlineHotelException("Customerdao has problem"+e);
 		}
 		finally{
 			try{
@@ -75,11 +79,15 @@ public class CustomerDAO {
 				{
 					pstmt.close();
 				}
+				if (conobj != null) {
+					conobj.close();
+				}
 			}
 			catch(SQLException e)
 			{
 				System.out.println("error while closing object");
 			}
 			}
+	return flag;
 	}
 }

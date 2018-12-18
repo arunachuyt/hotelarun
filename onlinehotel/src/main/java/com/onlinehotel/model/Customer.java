@@ -1,7 +1,7 @@
 package com.onlinehotel.model;
 
 public class Customer {
-	private int phoneNo;
+	private String phoneNo;
 	private String custName;
 	private String password;
 
@@ -10,18 +10,18 @@ public class Customer {
 	}
 	
 
-	public Customer(int phoneNo, String custName, String password) {
+	public Customer(String phoneNo, String custName, String password) {
 	
 		this.phoneNo = phoneNo;
 		this.custName = custName;
 		this.password = password;
 	}
 
-	public int getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(int phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 

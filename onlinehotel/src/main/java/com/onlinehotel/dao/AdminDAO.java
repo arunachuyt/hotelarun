@@ -33,7 +33,7 @@ public class AdminDAO {
 			}
 		} catch (SQLException e) {
 			
-			throw new OnlineHotelException("Admindao has problem"+e);
+			throw new OnlineHotelException("admindao has problem"+e);
 		} finally {
 			try {
 				if (result != null) {

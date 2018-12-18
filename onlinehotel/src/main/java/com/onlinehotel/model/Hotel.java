@@ -2,12 +2,12 @@ package com.onlinehotel.model;
 
 public class Hotel {
 	private int hotelId;
-	private int hotelName;
-	Location location;
+	private String hotelName;
+	private Location location;
 	public Hotel() {
 		// TODO Auto-generated constructor stub
 	}
-	public Hotel(int hotelId, int hotelName, Location location) {
+	public Hotel(int hotelId, String hotelName, Location location) {
 		this.hotelId = hotelId;
 		this.hotelName = hotelName;
 		this.location = location;
@@ -18,10 +18,10 @@ public class Hotel {
 	public void setHotelId(int hotelId) {
 		this.hotelId = hotelId;
 	}
-	public int getHotelName() {
+	public String getHotelName() {
 		return hotelName;
 	}
-	public void setHotelName(int hotelName) {
+	public void setHotelName(String hotelName) {
 		this.hotelName = hotelName;
 	}
 	public Location getLocation() {

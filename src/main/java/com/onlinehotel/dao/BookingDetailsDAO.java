@@ -99,6 +99,7 @@ public class BookingDetailsDAO {
 				
 				BookingEntry bookingEntry=new BookingEntry();
 				bookingEntry.setCustomerPhNo(customer);
+				bookingEntry.setBid(bookingentry.getBid());
 	
 				bookingdetails1.setRoomId(room);
 				bookingdetails1.setBid(bookingEntry);

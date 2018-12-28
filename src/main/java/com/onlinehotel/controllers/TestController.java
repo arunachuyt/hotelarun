@@ -1,12 +1,13 @@
 package com.onlinehotel.controllers;
 
-import java.sql.Date;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import com.onlinehotel.model.Customer;
 import com.onlinehotel.model.Hotel;
 import com.onlinehotel.model.Location;
 import com.onlinehotel.model.Room;
+import com.onlinehotel.model.RoomType;
 import com.onlinehotel.service.AdminService;
 import com.onlinehotel.service.BookingDetailsService;
 import com.onlinehotel.service.BookingEntryService;
@@ -330,4 +332,83 @@ public class TestController {
 		return mav;
 	}
 	
+	@GetMapping("/listAllBooking")
+	public ModelAndView listAllBooking(HttpSession session){
+		String view="mybookings";
+		ModelAndView mav=null;
+		List<BookingDetails> bookings=new ArrayList<BookingDetails>();
+		try{
+			mav=new ModelAndView(view);
+			bookings=customerService.listAllBooking((Customer) session.getAttribute("customer"));
+			mav.addObject("bookings", bookings);
+		}
+		catch(OnlineHotelException e)
+		{
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
+		@GetMapping("/logout")
+			public ModelAndView logout(HttpServletRequest request) throws OnlineHotelException{
+			String view="oyologin";
+			ModelAndView mav=null;
+			mav=new ModelAndView(view);
+			request.getSession(true).invalidate();
+				
+				return mav;
+				
+			} 
+		 
+	
+	@GetMapping("/addhotel")
+	public ModelAndView addhotel(){
+		String view="addhotel";
+		ModelAndView mav=null;
+		List<Location> locations=new ArrayList<Location>();
+		List<RoomType> roomTypes=new ArrayList<RoomType>();
+		try{
+			mav=new ModelAndView(view);
+			locations=locationService.fetchAllLocation();
+			roomTypes=roomTypeService.fetchAllRoomTypes();
+			mav.addObject("locations", locations);
+			mav.addObject("roomTypes", roomTypes);
+			
+		}
+		catch(OnlineHotelException e)
+		{
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
+	
+	@PostMapping("/registernewhotel")
+	public ModelAndView registernewhotel(){
+		String view="adminfunctionality";
+		ModelAndView mav=null;
+		List<Location> locations=new ArrayList<Location>();
+		List<RoomType> roomTypes=new ArrayList<RoomType>();
+		try{
+			mav=new ModelAndView(view);
+			locations=locationService.fetchAllLocation();
+			roomTypes=roomTypeService.fetchAllRoomTypes();
+			mav.addObject("locations", locations);
+			mav.addObject("roomTypes", roomTypes);
+			
+		}
+		catch(OnlineHotelException e)
+		{
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
+	@GetMapping("/gallery")
+	public ModelAndView gallery() throws OnlineHotelException{
+		ModelAndView mav=null;
+		String view="gallery";
+		mav=new ModelAndView(view);
+		return mav;
+	}
 }

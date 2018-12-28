@@ -36,7 +36,7 @@
   </head>
 
   <body >
- ${customer}
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-image: url('../images/logo2.jpg');background-repeat: no-repeat;background-color: black;background-size: contain;background-position: 6%"><!-- bg-dark navbar-dark --><!--  style="background-color: transparent;color:black;" -->
       <div class="container">
@@ -52,13 +52,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">My Bookings</a>
+              <a class="nav-link" href="listAllBooking">My Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="gallery" target="blank">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home">Logout</a>
+              <a class="nav-link" href="logout">Logout</a>
             </li>
           </ul>
         </div>

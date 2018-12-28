@@ -1,9 +1,10 @@
 
 
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 
 
-
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 
@@ -22,10 +23,6 @@
     <link href="https://blackrockdigital.github.io/startbootstrap-business-frontpage/css/business-frontpage.css" rel="stylesheet">
     <script src="https://blackrockdigital.github.io/startbootstrap-business-frontpage/vendor/jquery/jquery.min.js"></script>
     <script src="https://blackrockdigital.github.io/startbootstrap-business-frontpage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-  
-  
   </head>
 
   <body >
@@ -48,7 +45,7 @@
               <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" target="blank" href="gallery">Gallery</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
@@ -182,7 +179,7 @@
           <h4 style="text-align: left;"><span class="glyphicon glyphicon-pencil"></span> Register</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-<form name="register" action="registration" method="post" onsubmit="return validateregister()">
+<form name="register" action="restregister" method="post" >
             <div class="form-group">
 
 <input type="text" class="form-control" name="phoneNo" placeholder="Enter your 10 digit mobile number" maxlength="10" pattern="[1-9]{1}[0-9]{9}" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="invalidmsg(this)" title="Should enter a valid phone no i.e., first digit is not zero" required="required">
@@ -200,7 +197,7 @@
               <input type="password" class="form-control" name="password2" placeholder="Re-Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter and one special character(!@#\$%^&*), and at least 8 or more characters">
             </div> -->
             
-              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>  Register</button>
+              <button type="submit" onclick="return validateregister()" id="registerbutton" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>  Register</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -212,6 +209,47 @@
     </div>
   </div> 
 </div>
+<script>
+$(document).
+ready(function() {
+                $('#registerbutton').on('click',function() {
+                var	regex2=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+                	if (pass.match(regex2)) {
+                		return true;
+                	  
+                                $.ajax({type : 'POST',
+                                                url : 'http://localhost:1111/restregister',
+                                                contentType : 'application/json; charset=utf-8',
+                                                dataType:'json',
+                                                
+                                data:JSON.stringify({"phoneNo":$('input[name=phoneNo]').val(),"custName":$('input[name=custName]').val(),"password":$('input[name=password]').val()}),
+                                                success : function(html) {
+                                                                console.log(html);
+                                                if(html.messsage=="registered"){
+                                                                alert("Registration Successfull Please login to Continue");
+                                                                
+                                                                
+                                                                
+                                                }else{
+                                                                alert("Registration Failed Please Try Again");
+                                                }
+                
+                }
+                                });
+                	} else {
+
+                		alert("Password entered is of wrong format");
+                		return false;
+                	} 
+                                });
+                });
+                
+</script>
+
+
+
+
+
 <script>
   
 	$(document).ready(function(){
@@ -235,7 +273,7 @@ $(document).ready(function(){
 <script>
 function validateregister() {
 	//alert("validate");
-	var phoneno = document.forms["register"]["phoneno"].value;
+	var phoneno = document.forms["register"]["phoneNo"].value;
 	var pass = document.forms["register"]["password"].value;
 	
 	 if (phoneno == "" || pass == "") {

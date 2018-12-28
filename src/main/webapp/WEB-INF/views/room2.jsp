@@ -26,22 +26,30 @@ padding-left: 30%;
 }
 </style>
     <!-- Bootstrap core CSS -->
+<!--     <link href="https://blackrockdigital.github.io/startbootstrap-business-frontpage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <script
+       src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+       src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
+<!-- <link rel="stylesheet" href="../css/hotel1.css">
+<link rel="stylesheet" href="../css/hotel2.css"> -->
     <!-- Custom styles for this template -->
     <link href="https://blackrockdigital.github.io/startbootstrap-business-frontpage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://blackrockdigital.github.io/startbootstrap-business-frontpage/css/business-frontpage.css" rel="stylesheet">
     <script src="https://blackrockdigital.github.io/startbootstrap-business-frontpage/vendor/jquery/jquery.min.js"></script>
     <script src="https://blackrockdigital.github.io/startbootstrap-business-frontpage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
+<!-- <link rel="stylesheet"
+       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
 
   
   </head>
 
   <body>
-${customer }
-${bookingdetails}
-${rooms  }
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-image: url('../images/logo2.jpg');background-repeat: no-repeat;background-color: black;background-size: contain;background-position: 6%"><!-- bg-dark navbar-dark --><!--  style="background-color: transparent;color:black;" -->
       <div class="container">
@@ -57,13 +65,13 @@ ${rooms  }
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">My Bookings</a>
+              <a class="nav-link" href="listAllBooking">My Bookings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="gallery" target="blank">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
+              <a class="nav-link" href="logout">Logout</a>
             </li>
           </ul>
         </div>
@@ -85,9 +93,7 @@ ${rooms  }
 
     <!-- Page Content -->
 
-
-    
-       <form action="booking" method="post">
+       <form method="post" action="booking" >
 <div class="container">
       <div class="row">
       <c:set value="1" var="i"/>
@@ -103,7 +109,7 @@ ${rooms  }
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>   
             </div>
             <div class="card-footer">
-<input type="checkbox" name="roomsbooked" value="${room.roomId }" style="visibility: hidden;" id="roomno${i }">
+<input type="checkbox" name="rooms" value="${room.roomId }" style="visibility: hidden;" id="roomno${i }">
 <!--   <a class="btn btn-primary" type="submit">Book Rooms!</a> --><%--  href="hotel?hotelId=${hotel.hotelId }"  --%>
 
             </div>
@@ -135,17 +141,31 @@ background-color: grey;
 }
 </style>
 
-   
+      
 
       </div>
       <!-- /.row -->
 
     </div>
-     <input class="btn btn-primary" type="submit" class="btn btn-primary" value="Book Rooms!">
-    <!--   <a class="btn btn-primary" type="submit">Book Rooms!</a> -->
+    <input type="submit" class="btn btn-primary" value="Book Rooms!"/>
+     <!--  <a><input class="btn btn-primary" type="submit">Book Rooms!</a> -->
     
     </form>
     <!-- /.container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">

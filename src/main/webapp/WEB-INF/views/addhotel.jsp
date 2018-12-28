@@ -8,14 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="registernewhotel" method="post">
 <input type="text" placeholder="HotelName">
 <select name="locationId" >
 <c:forEach items="${locations}" var="location">
 <option value="${location. locationId}" selected="selected"> ${location.locationName}</option>
 </c:forEach>
 </select>
-<c:forEach items="${RoomTypes}" var="roomtype">
+<c:forEach items="${roomTypes}" var="roomtype">
 No. of rooms of type ${roomtype.type}<input type="text" placeholder="No of room" name="${roomtype.typeid}">
 </c:forEach>
 <input type="submit" value="Add Hotel">

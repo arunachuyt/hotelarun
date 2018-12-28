@@ -1,15 +1,16 @@
 package com.onlinehotel.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 public class BookingEntry {
 	private int bid;
-	private LocalDate bookingDate; 
+	private Date bookingDate; 
 	private Customer customerPhNo;
 	public BookingEntry() {
 		super();
 	}
-	public BookingEntry(int bid, LocalDate bookingDate, Customer customerPhNo) {
+	public BookingEntry(int bid, Date bookingDate, Customer customerPhNo) {
 		super();
 		this.bid = bid;
 		this.bookingDate = bookingDate;
@@ -21,10 +22,10 @@ public class BookingEntry {
 	public void setBid(int bid) {
 		this.bid = bid;
 	}
-	public LocalDate getBookingDate() {
+	public Date getBookingDate() {
 		return bookingDate;
 	}
-	public void setBookingDate(LocalDate bookingDate) {
+	public void setBookingDate(Date bookingDate) {
 		this.bookingDate = bookingDate;
 	}
 	public Customer getCustomerPhNo() {

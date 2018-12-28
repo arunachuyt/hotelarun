@@ -48,7 +48,7 @@
 </head>
 
 <body>
-${customer}	
+	
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
 		style="background-image: url('../images/logo2.jpg'); background-repeat: no-repeat; background-color: black; background-size: contain; background-position: 6%">
@@ -56,8 +56,8 @@ ${customer}
 		<!--  style="background-color: transparent;color:black;" -->
 		<div class="container">
 			<a class="navbar-brand" href="#">
-				<!-- <span><img src="../images/logo.jpg" width="100px" height="100px"></span> -->Welcome${customer.custName}
-				
+				<!-- <span><img src="../images/logo.jpg" width="100px" height="100px"></span> -->Welcome
+				${customer.custName }
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -69,11 +69,11 @@ ${customer}
 					<li class="nav-item active"><a class="nav-link" href="location">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">My
+					<li class="nav-item"><a class="nav-link" href="listAllBooking">My
 							Bookings</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Services</a>
+					<li class="nav-item"><a class="nav-link" target="blank" href="gallery">Gallery</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
 				</ul>
 			</div>
 		</div>
